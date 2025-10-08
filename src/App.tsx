@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Spline from '@splinetool/react-spline';
 import {
   Menu, X, ArrowRight, ChevronDown, MessageSquare, Database, Calendar,
   PhoneCall, Share2, Globe, Shield, TrendingUp, Zap, CheckCircle2,
@@ -223,21 +224,21 @@ function App() {
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0">
-          <img
-            src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="AI Technology Background"
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1f]/95 via-[#0d1b3a]/90 to-[#0a0a2e]/95"></div>
+          <div className="absolute inset-0 w-full h-full">
+            <Spline
+              scene="https://prod.spline.design/2ca76fa7-6f14-4023-b55b-7addd114e6e5/scene.splinecode"
+              className="w-full h-full"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1f]/85 via-[#0d1b3a]/80 to-[#0a0a2e]/85"></div>
         </div>
 
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full filter blur-[120px] opacity-20 animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full filter blur-[120px] opacity-20 animate-pulse" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-500 rounded-full filter blur-[150px] opacity-10"></div>
+          <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full filter blur-[120px] opacity-15 animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full filter blur-[120px] opacity-15 animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="tech-grid" width="50" height="50" patternUnits="userSpaceOnUse">
