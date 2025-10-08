@@ -223,22 +223,20 @@ function App() {
       </nav>
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 w-full h-full">
-            <Spline
-              scene="https://prod.spline.design/2ca76fa7-6f14-4023-b55b-7addd114e6e5/scene.splinecode"
-              className="w-full h-full"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1f]/85 via-[#0d1b3a]/80 to-[#0a0a2e]/85"></div>
+        <div className="absolute inset-0 z-0">
+          <Spline
+            scene="https://prod.spline.design/2ca76fa7-6f14-4023-b55b-7addd114e6e5/scene.splinecode"
+            style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1f]/70 via-[#0d1b3a]/60 to-[#0a0a2e]/70 pointer-events-none"></div>
         </div>
 
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
           <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full filter blur-[120px] opacity-15 animate-pulse"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full filter blur-[120px] opacity-15 animate-pulse" style={{ animationDelay: '1s' }}></div>
         </div>
 
-        <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 opacity-10 z-0 pointer-events-none">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <pattern id="tech-grid" width="50" height="50" patternUnits="userSpaceOnUse">
