@@ -222,7 +222,14 @@ function App() {
       </nav>
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1f] via-[#0d1b3a] to-[#0a0a2e]"></div>
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="AI Technology Background"
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1f]/95 via-[#0d1b3a]/90 to-[#0a0a2e]/95"></div>
+        </div>
 
         <div className="absolute inset-0">
           <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500 rounded-full filter blur-[120px] opacity-20 animate-pulse"></div>
@@ -353,6 +360,14 @@ function App() {
 
       <section id="automations" className="py-24 bg-[#0d1428] relative overflow-hidden">
         <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/8438918/pexels-photo-8438918.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Digital Automation"
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-[#0d1428]/85"></div>
+        </div>
+        <div className="absolute inset-0">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full filter blur-[150px] opacity-10"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-[150px] opacity-10"></div>
         </div>
@@ -473,8 +488,16 @@ function App() {
         </div>
       </section>
 
-      <section id="proof" className="py-24 bg-[#0a0a1f] relative">
-        <div className="max-w-7xl mx-auto px-6">
+      <section id="proof" className="py-24 bg-[#0a0a1f] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Business Success"
+            className="w-full h-full object-cover opacity-10"
+          />
+          <div className="absolute inset-0 bg-[#0a0a1f]/90"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-black mb-4">
               Trusted by <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Modern Businesses</span>
@@ -557,6 +580,14 @@ function App() {
       </section>
 
       <section id="cta" className="py-32 bg-gradient-to-br from-cyan-600 via-blue-600 to-purple-700 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Growth and Innovation"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/90 via-blue-600/90 to-purple-700/90"></div>
+        </div>
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full opacity-30">
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full filter blur-[150px]"></div>
