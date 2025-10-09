@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import {
   Menu, X, ArrowRight, ChevronDown, MessageSquare, Database, Calendar,
   PhoneCall, Share2, Globe, Shield, TrendingUp, Zap, CheckCircle2,
-  Users, Clock, DollarSign, Target, Activity, Plus, Minus, Sparkles
+  Users, Clock, DollarSign, Target, Activity, Plus, Minus, Sparkles,
+  Instagram, Linkedin, Twitter, Mail, Phone
 } from 'lucide-react';
 import BookingModal from './components/BookingModal';
 
@@ -625,34 +626,35 @@ function App() {
         </div>
       </section>
 
-      <footer className="bg-[#0a0a1f] border-t border-cyan-500/10 py-16 relative">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.5) 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
-
+      <footer className="bg-[#0a0a1f] border-t border-cyan-500/10 py-12 relative">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center space-x-2 mb-4 group">
-              <Zap className="w-10 h-10 text-cyan-400" />
-              <span className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Nexanova.ai
-              </span>
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-8 md:space-y-0">
+            <div className="text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
+                <Mail className="w-5 h-5 text-cyan-400" />
+                <a href="mailto:contact@nexanova.ai" className="text-gray-300 hover:text-cyan-400 transition-colors">
+                  contact@nexanova.ai
+                </a>
+              </div>
+              <div className="flex items-center justify-center md:justify-start space-x-3">
+                <Phone className="w-5 h-5 text-cyan-400" />
+                <a href="tel:+15551234567" className="text-gray-300 hover:text-cyan-400 transition-colors">
+                  +1 (555) 123-4567
+                </a>
+              </div>
             </div>
-            <p className="text-xl text-cyan-400 font-bold mb-6">Future-Proof Your Business</p>
-            <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
-              AI-powered automation that transforms your workflows, scales your operations, and dominates your market.
-            </p>
-          </div>
 
-          <div className="border-t border-cyan-500/10 pt-8">
-            <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-4 md:space-y-0">
-              <div className="flex space-x-6 text-gray-500 text-sm">
-                <a href="#" className="hover:text-cyan-400 transition-colors">Privacy</a>
-                <a href="#" className="hover:text-cyan-400 transition-colors">Terms</a>
-                <a href="#" className="hover:text-cyan-400 transition-colors">Cookies</a>
+            <div className="flex flex-col items-center space-y-4">
+              <div className="flex space-x-6">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-cyan-500/20 flex items-center justify-center transition-all hover:scale-110">
+                  <Instagram className="w-5 h-5 text-gray-300 hover:text-cyan-400 transition-colors" />
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-cyan-500/20 flex items-center justify-center transition-all hover:scale-110">
+                  <Linkedin className="w-5 h-5 text-gray-300 hover:text-cyan-400 transition-colors" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-cyan-500/20 flex items-center justify-center transition-all hover:scale-110">
+                  <Twitter className="w-5 h-5 text-gray-300 hover:text-cyan-400 transition-colors" />
+                </a>
               </div>
               <div className="text-gray-500 text-sm">
                 <p>&copy; 2025 Nexanova.ai. All rights reserved.</p>
