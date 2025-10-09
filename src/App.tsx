@@ -634,43 +634,21 @@ function App() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4 group">
-                <Zap className="w-10 h-10 text-cyan-400" />
-                <span className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                  Nexanova.ai
-                </span>
-              </div>
-              <p className="text-xl text-cyan-400 font-bold mb-6">Future-Proof Your Business</p>
-              <p className="text-gray-400 leading-relaxed max-w-md">
-                AI-powered automation that transforms your workflows, scales your operations, and dominates your market.
-              </p>
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center space-x-2 mb-4 group">
+              <Zap className="w-10 h-10 text-cyan-400" />
+              <span className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                Nexanova.ai
+              </span>
             </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-4 text-cyan-400">Solutions</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-cyan-400 transition-colors">Customer Support</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition-colors">Sales Automation</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition-colors">CRM Integration</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition-colors">AI Chatbots</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-bold text-lg mb-4 text-cyan-400">Company</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="#" className="hover:text-cyan-400 transition-colors">Case Studies</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition-colors">Pricing</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition-colors">Blog</a></li>
-                <li><a href="#" className="hover:text-cyan-400 transition-colors">Contact</a></li>
-              </ul>
-            </div>
+            <p className="text-xl text-cyan-400 font-bold mb-6">Future-Proof Your Business</p>
+            <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
+              AI-powered automation that transforms your workflows, scales your operations, and dominates your market.
+            </p>
           </div>
 
           <div className="border-t border-cyan-500/10 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="flex flex-col md:flex-row justify-center md:justify-between items-center space-y-4 md:space-y-0">
               <div className="flex space-x-6 text-gray-500 text-sm">
                 <a href="#" className="hover:text-cyan-400 transition-colors">Privacy</a>
                 <a href="#" className="hover:text-cyan-400 transition-colors">Terms</a>
