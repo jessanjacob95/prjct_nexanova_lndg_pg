@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import {
   Menu, X, ArrowRight, ChevronDown, MessageSquare, Database, Calendar,
   PhoneCall, Share2, Globe, Shield, TrendingUp, Zap, CheckCircle2,
-  Users, Clock, DollarSign, Target, Activity, Plus, Minus, Sparkles
+  Users, Clock, DollarSign, Target, Activity, Plus, Minus, Sparkles,
+  Instagram, Linkedin, Twitter, Mail, Phone
 } from 'lucide-react';
 import BookingModal from './components/BookingModal';
 
@@ -642,9 +643,49 @@ function App() {
               </span>
             </div>
             <p className="text-xl text-cyan-400 font-bold mb-6">Future-Proof Your Business</p>
-            <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto mb-8">
               AI-powered automation that transforms your workflows, scales your operations, and dominates your market.
             </p>
+
+            <div className="flex flex-col items-center space-y-6 mb-8">
+              <div className="flex items-center space-x-6 text-gray-400">
+                <a href="mailto:info@nexanova.ai" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors group">
+                  <Mail className="w-5 h-5" />
+                  <span className="text-sm">info@nexanova.ai</span>
+                </a>
+                <a href="tel:+1234567890" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors group">
+                  <Phone className="w-5 h-5" />
+                  <span className="text-sm">+1 (234) 567-890</span>
+                </a>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] w-12 h-12 rounded-full flex items-center justify-center border border-cyan-500/20 hover:border-cyan-500/60 hover:bg-cyan-500/10 transition-all duration-300"
+                >
+                  <Instagram className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] w-12 h-12 rounded-full flex items-center justify-center border border-cyan-500/20 hover:border-cyan-500/60 hover:bg-cyan-500/10 transition-all duration-300"
+                >
+                  <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                </a>
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] w-12 h-12 rounded-full flex items-center justify-center border border-cyan-500/20 hover:border-cyan-500/60 hover:bg-cyan-500/10 transition-all duration-300"
+                >
+                  <Twitter className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className="border-t border-cyan-500/10 pt-8">
