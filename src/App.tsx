@@ -4,6 +4,7 @@ import {
   PhoneCall, Share2, Globe, Shield, TrendingUp, Zap, CheckCircle2,
   Users, Clock, DollarSign, Target, Activity, Plus, Minus, Sparkles
 } from 'lucide-react';
+import BookingModal from './components/BookingModal';
 
 interface FAQItem {
   question: string;
@@ -16,6 +17,7 @@ function App() {
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [stats, setStats] = useState({ hours: 0, conversions: 0, businesses: 0 });
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -179,7 +181,7 @@ function App() {
                 FAQ
               </button>
               <button
-                onClick={() => scrollToSection('cta')}
+                onClick={() => setIsBookingModalOpen(true)}
                 className="relative bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 shadow-lg shadow-cyan-500/50"
               >
                 <span>Book Free Call</span>
@@ -210,7 +212,7 @@ function App() {
                 FAQ
               </button>
               <button
-                onClick={() => scrollToSection('cta')}
+                onClick={() => setIsBookingModalOpen(true)}
                 className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-2.5 rounded-full font-medium flex items-center justify-center space-x-2"
               >
                 <span>Book Free Call</span>
@@ -262,7 +264,7 @@ function App() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
-              onClick={() => scrollToSection('cta')}
+              onClick={() => setIsBookingModalOpen(true)}
               className="group relative bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 px-12 py-6 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 shadow-2xl shadow-cyan-500/50 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
@@ -571,7 +573,10 @@ function App() {
           <p className="text-2xl md:text-3xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
             No fluff. Just results. 30 minutes to change your business forever.
           </p>
-          <button className="group bg-white text-blue-700 hover:bg-gray-50 px-16 py-8 rounded-full text-2xl font-black transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-3 shadow-2xl">
+          <button
+            onClick={() => setIsBookingModalOpen(true)}
+            className="group bg-white text-blue-700 hover:bg-gray-50 px-16 py-8 rounded-full text-2xl font-black transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-3 shadow-2xl"
+          >
             <span>Book Your Free Strategy Call</span>
             <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
           </button>
@@ -678,6 +683,11 @@ function App() {
           </div>
         </div>
       </footer>
+
+      <BookingModal
+        isOpen={isBookingModalOpen}
+        onClose={() => setIsBookingModalOpen(false)}
+      />
 
       <style>{`
         @keyframes gradient {
