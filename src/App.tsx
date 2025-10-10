@@ -115,7 +115,7 @@ function App() {
     },
     {
       icon: Database,
-      title: "CRM Integration",
+      title: "Lead Capture & CRM Integration",
       description: "Seamless data sync with automated lead scoring and pipeline management",
       color: "from-blue-600 to-purple-600"
     },
