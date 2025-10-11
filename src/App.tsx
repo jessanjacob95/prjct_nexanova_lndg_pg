@@ -17,7 +17,6 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-  const [activeCard, setActiveCard] = useState<number | null>(null);
   const [stats, setStats] = useState({ hours: 0, conversions: 0, businesses: 0 });
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -109,50 +108,6 @@ function App() {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
-  const automations = [
-    {
-      icon: MessageSquare,
-      title: "Customer Support Automation",
-      description: "24/7 AI chatbots and intelligent ticketing systems that never sleep",
-      color: "from-cyan-500 to-blue-600"
-    },
-    {
-      icon: Database,
-      title: "Lead Capture & CRM Integration",
-      description: "Seamless data sync with automated lead scoring and pipeline management",
-      color: "from-blue-600 to-purple-600"
-    },
-    {
-      icon: Calendar,
-      title: "Appointment Setting",
-      description: "Smart scheduling with automated reminders and calendar sync",
-      color: "from-purple-600 to-pink-600"
-    },
-    {
-      icon: TrendingUp,
-      title: "Sales Outreach Automation",
-      description: "AI-powered email sequences and personalized outreach at scale",
-      color: "from-pink-600 to-red-600"
-    },
-    {
-      icon: PhoneCall,
-      title: "Call Automation",
-      description: "AI voice agents for inbound and outbound calls that convert",
-      color: "from-red-600 to-orange-600"
-    },
-    {
-      icon: Share2,
-      title: "Social Media Automation",
-      description: "Consistent engagement across all platforms from one dashboard",
-      color: "from-orange-600 to-yellow-600"
-    },
-    {
-      icon: Globe,
-      title: "Website Building",
-      description: "Conversion-optimized sites with embedded AI chatbots",
-      color: "from-yellow-600 to-green-600"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-[#0a0a1f] text-white overflow-x-hidden">
@@ -290,6 +245,22 @@ function App() {
         <div className="absolute inset-0">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full filter blur-[150px] opacity-10"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-[150px] opacity-10"></div>
+        </div>
+
+        <div className="relative mb-12">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-3/4 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-30"></div>
+          </div>
+          <div className="relative flex justify-center">
+            <div className="bg-gradient-to-r from-cyan-600 to-blue-600 p-1 rounded-2xl shadow-lg shadow-cyan-500/50">
+              <div className="bg-[#0a0a1f] px-8 py-3 rounded-xl flex items-center space-x-3">
+                <Sparkles className="w-6 h-6 text-cyan-400" />
+                <span className="text-lg font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                  Interactive Demos
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -457,57 +428,6 @@ function App() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="automations" className="py-24 bg-[#0d1428] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full filter blur-[150px] opacity-10"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-[150px] opacity-10"></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black mb-4">
-              Our Core <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Automations</span>
-            </h2>
-            <p className="text-xl text-gray-400">Hover to activate each automation system</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {automations.map((automation, index) => {
-              const Icon = automation.icon;
-              return (
-                <div
-                  key={index}
-                  className="group relative bg-gradient-to-br from-[#0a0a1f] to-[#1a1a3f] p-8 rounded-2xl border border-cyan-500/20 hover:border-cyan-500/60 transition-all duration-500 cursor-pointer overflow-hidden"
-                  onMouseEnter={() => setActiveCard(index)}
-                  onMouseLeave={() => setActiveCard(null)}
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${automation.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-
-                  <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${automation.color} rounded-full filter blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
-
-                  <div className="relative">
-                    <div className={`bg-gradient-to-br ${automation.color} p-4 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
-                      <Icon className={`w-8 h-8 text-white ${activeCard === index ? 'animate-pulse' : ''}`} />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
-                      {automation.title}
-                    </h3>
-                    <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
-                      {automation.description}
-                    </p>
-
-                    <div className={`mt-4 flex items-center space-x-2 text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500`}>
-                      <span className="text-sm font-semibold">Activate</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
