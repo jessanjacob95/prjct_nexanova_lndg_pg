@@ -3,9 +3,10 @@ import {
   Menu, X, ArrowRight, ChevronDown, MessageSquare, Database, Calendar,
   PhoneCall, Share2, Globe, Shield, TrendingUp, Zap, CheckCircle2,
   Users, Clock, DollarSign, Target, Activity, Plus, Minus, Sparkles,
-  Instagram, Linkedin, Twitter, Mail, Phone
+  Instagram, Linkedin, Twitter, Mail, Phone, Play
 } from 'lucide-react';
 import BookingModal from './components/BookingModal';
+import DemoModal from './components/DemoModal';
 
 interface FAQItem {
   question: string;
@@ -19,6 +20,8 @@ function App() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
   const [stats, setStats] = useState({ hours: 0, conversions: 0, businesses: 0 });
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [selectedDemo, setSelectedDemo] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -273,17 +276,121 @@ function App() {
               <ArrowRight className="w-6 h-6 relative group-hover:translate-x-1 transition-transform" />
             </button>
             <button
-              onClick={() => scrollToSection('automations')}
+              onClick={() => scrollToSection('demos')}
               className="group border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-12 py-6 rounded-full text-xl font-bold transition-all duration-300 flex items-center space-x-2 backdrop-blur-sm"
             >
-              <span>See How It Works</span>
-              <ChevronDown className="w-6 h-6 group-hover:translate-y-1 transition-transform" />
+              <span>Try Live Demos</span>
+              <Play className="w-6 h-6 group-hover:scale-110 transition-transform" />
             </button>
           </div>
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-b from-[#0a0a1f] to-[#0d1428] relative">
+      <section id="demos" className="py-24 bg-gradient-to-b from-[#0a0a1f] to-[#0d1428] relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500 rounded-full filter blur-[150px] opacity-10"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500 rounded-full filter blur-[150px] opacity-10"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-6xl font-black mb-4">
+              Explore Our AI Automation Capabilities{' '}
+              <span className="inline-block animate-pulse">🚀</span>
+            </h2>
+            <p className="text-xl text-gray-400">
+              Experience our services live — see how each automation works in real time.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Database,
+                title: "Lead Capture & CRM Integration",
+                description: "Watch how leads are captured and synced into a CRM automatically.",
+                color: "from-blue-600 to-purple-600"
+              },
+              {
+                icon: MessageSquare,
+                title: "Customer Support Ticket Automation",
+                description: "See AI create and manage support tickets in real time.",
+                color: "from-cyan-500 to-blue-600"
+              },
+              {
+                icon: Calendar,
+                title: "Appointment Setting",
+                description: "Try our AI meeting scheduler demo.",
+                color: "from-purple-600 to-pink-600"
+              },
+              {
+                icon: PhoneCall,
+                title: "Call Automation",
+                description: "Preview how AI can confirm calls and send reminders.",
+                color: "from-red-600 to-orange-600"
+              },
+              {
+                icon: TrendingUp,
+                title: "Sales Outreach Automation",
+                description: "Generate a personalized follow-up message instantly.",
+                color: "from-pink-600 to-red-600"
+              },
+              {
+                icon: Share2,
+                title: "Social Media Automation",
+                description: "See AI generate post ideas and captions for your brand.",
+                color: "from-orange-600 to-yellow-600"
+              },
+              {
+                icon: Globe,
+                title: "Website Building",
+                description: "Watch AI design a website section for your business instantly.",
+                color: "from-yellow-600 to-green-600"
+              }
+            ].map((demo, index) => {
+              const Icon = demo.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative bg-gradient-to-br from-[#0a0a1f]/80 to-[#1a1a3f]/80 backdrop-blur-sm p-8 rounded-2xl border border-cyan-500/20 hover:border-cyan-500/60 transition-all duration-500 cursor-pointer overflow-hidden"
+                  style={{
+                    animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
+                  }}
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${demo.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+
+                  <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${demo.color} rounded-full filter blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
+
+                  <div className="relative">
+                    <div className={`bg-gradient-to-br ${demo.color} p-4 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
+                      <Icon className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
+                      {demo.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed mb-6 group-hover:text-gray-300 transition-colors">
+                      {demo.description}
+                    </p>
+
+                    <button
+                      onClick={() => {
+                        setSelectedDemo(demo.title);
+                        setIsDemoModalOpen(true);
+                      }}
+                      className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 flex items-center justify-center space-x-2 shadow-lg shadow-cyan-500/20"
+                    >
+                      <Play className="w-4 h-4" />
+                      <span>Try Demo</span>
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-gradient-to-b from-[#0d1428] to-[#0a0a1f] relative">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.5) 1px, transparent 0)',
@@ -708,6 +815,12 @@ function App() {
         onClose={() => setIsBookingModalOpen(false)}
       />
 
+      <DemoModal
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+        demoTitle={selectedDemo}
+      />
+
       <style>{`
         @keyframes gradient {
           0%, 100% { background-position: 0% 50%; }
@@ -726,6 +839,32 @@ function App() {
 
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-scaleIn {
+          animation: scaleIn 0.3s ease-out;
         }
       `}</style>
     </div>
