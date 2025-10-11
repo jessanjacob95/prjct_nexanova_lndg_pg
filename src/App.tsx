@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import BookingModal from './components/BookingModal';
 import DemoModal from './components/DemoModal';
+import ChatWidget from './components/ChatWidget';
 
 interface FAQItem {
   question: string;
@@ -787,6 +788,8 @@ function App() {
           animation: scaleIn 0.3s ease-out;
         }
       `}</style>
+
+      <ChatWidget />
     </div>
   );
 }
