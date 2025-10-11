@@ -14,25 +14,7 @@ function ChatWidget() {
     <>
       <div className="fixed bottom-6 right-6 z-50">
         {isOpen && (
-          <div className="mb-4 bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] rounded-3xl shadow-2xl border border-cyan-500/30 overflow-hidden animate-slideUp">
-            <div className="bg-gradient-to-r from-cyan-600 to-blue-600 p-4 flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                  <MessageCircle className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-white">Nexanova Assistant</h3>
-                  <p className="text-xs text-cyan-100">Ask us anything!</p>
-                </div>
-              </div>
-              <button
-                onClick={toggleChat}
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-              >
-                <X className="w-5 h-5 text-white" />
-              </button>
-            </div>
-
+          <div className="mb-4 rounded-3xl shadow-2xl overflow-hidden animate-slideUp">
             <div className="w-[380px] h-[600px] md:w-[400px] md:h-[650px]">
               <iframe
                 src="https://creator.voiceflow.com/share/68d420c091c5ab19193c6efb/production"
@@ -41,7 +23,7 @@ function ChatWidget() {
                 frameBorder="0"
                 allow="microphone"
                 title="Voiceflow Chat Assistant"
-                className="bg-white"
+                className="bg-white rounded-3xl"
               />
             </div>
           </div>
