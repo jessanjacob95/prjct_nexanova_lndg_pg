@@ -64,8 +64,27 @@ function DemoModal({ isOpen, onClose, demoTitle }: DemoModalProps) {
 
               <div className="bg-[#0a0a1f]/70 rounded-2xl p-8 mb-6 border border-cyan-500/30 backdrop-blur-sm min-h-[500px] flex flex-col items-center justify-center">
                 <vapi-widget
-                  assistant-id="cf78f71c-0c8a-487a-9599-b41ff1c5d4a9"
                   public-key="89e97f60-3f7c-4f9e-baa8-9939172cc8e7"
+                  assistant-id="cf78f71c-0c8a-487a-9599-b41ff1c5d4a9"
+                  mode="voice"
+                  theme="dark"
+                  base-bg-color="#000000"
+                  accent-color="#1438b8"
+                  cta-button-color="#000000"
+                  cta-button-text-color="#ffffff"
+                  border-radius="large"
+                  size="tiny"
+                  position="bottom-left"
+                  title="NEXA CALL"
+                  start-button-text="Start"
+                  end-button-text="End Call"
+                  chat-first-message="Hey, How can I help you today?"
+                  chat-placeholder="Type your message..."
+                  voice-show-transcript="true"
+                  consent-required="true"
+                  consent-title="Terms and conditions"
+                  consent-content="By clicking &quot;Agree,&quot; and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as otherwise described in our Terms of Service."
+                  consent-storage-key="vapi_widget_consent"
                 ></vapi-widget>
               </div>
 
