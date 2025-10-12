@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import BookingModal from './components/BookingModal';
 import DemoModal from './components/DemoModal';
+import VapiModal from './components/VapiModal';
 import ChatWidget from './components/ChatWidget';
 
 interface FAQItem {
@@ -21,6 +22,7 @@ function App() {
   const [stats, setStats] = useState({ hours: 0, conversions: 0, businesses: 0 });
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+  const [isVapiModalOpen, setIsVapiModalOpen] = useState(false);
   const [selectedDemo, setSelectedDemo] = useState<string>('');
 
   useEffect(() => {
@@ -346,8 +348,12 @@ function App() {
 
                     <button
                       onClick={() => {
-                        setSelectedDemo(demo.title);
-                        setIsDemoModalOpen(true);
+                        if (demo.title === 'Call Automation') {
+                          setIsVapiModalOpen(true);
+                        } else {
+                          setSelectedDemo(demo.title);
+                          setIsDemoModalOpen(true);
+                        }
                       }}
                       className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-xl opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-500 flex items-center justify-center space-x-2 shadow-lg shadow-cyan-500/20"
                     >
@@ -740,6 +746,11 @@ function App() {
         isOpen={isDemoModalOpen}
         onClose={() => setIsDemoModalOpen(false)}
         demoTitle={selectedDemo}
+      />
+
+      <VapiModal
+        isOpen={isVapiModalOpen}
+        onClose={() => setIsVapiModalOpen(false)}
       />
 
       <style>{`
