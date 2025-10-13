@@ -86,21 +86,37 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       return;
     }
 
-    console.log('Form data:', formData);
-
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        service: '',
-        date: '',
-        time: ''
+    try {
+      const response = await fetch('https://hook.eu2.make.com/id9hcp788w39kihuk3j69i7tibz5bg18', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
-      onClose();
-    }, 3000);
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            fullName: '',
+            email: '',
+            phone: '',
+            service: '',
+            date: '',
+            time: ''
+          });
+          onClose();
+        }, 3000);
+      } else {
+        console.error('Failed to submit form');
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to submit. Please check your connection and try again.');
+    }
   };
 
   const handleClose = () => {
