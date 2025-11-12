@@ -121,12 +121,12 @@ function App() {
               <img
                 src="/fulllogo_transparent.png"
                 alt="Nexanova.ai"
-                className="h-[200px] w-auto"
+                className="h-[150px] w-auto"
               />
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => scrollToSection('automations')} className="text-gray-300 hover:text-cyan-400 transition-colors">
+              <button onClick={() => scrollToSection('demos')} className="text-gray-300 hover:text-cyan-400 transition-colors">
                 Solutions
               </button>
               <button onClick={() => scrollToSection('how-it-works')} className="text-gray-300 hover:text-cyan-400 transition-colors">
@@ -157,7 +157,7 @@ function App() {
 
           {isMobileMenuOpen && (
             <div className="md:hidden mt-4 pb-4 space-y-4 animate-fadeIn">
-              <button onClick={() => scrollToSection('automations')} className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2">
+              <button onClick={() => scrollToSection('demos')} className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2">
                 Solutions
               </button>
               <button onClick={() => scrollToSection('how-it-works')} className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2">
