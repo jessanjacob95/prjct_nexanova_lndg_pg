@@ -121,7 +121,7 @@ function App() {
               <img
                 src="/fulllogo_transparent.png"
                 alt="Nexanova.ai"
-                className="h-24 w-auto"
+                className="h-[200px] w-auto"
               />
             </div>
 
