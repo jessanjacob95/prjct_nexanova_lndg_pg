@@ -3,7 +3,7 @@ import {
   Menu, X, ArrowRight, ChevronDown, MessageSquare, Database, Calendar,
   PhoneCall, Share2, Globe, Shield, TrendingUp, Zap, CheckCircle2,
   Users, Clock, DollarSign, Target, Activity, Plus, Minus, Sparkles,
-  Instagram, Linkedin, Twitter, Mail, Phone, Play
+  Instagram, Linkedin, Facebook, Mail, Play
 } from 'lucide-react';
 import BookingModal from './components/BookingModal';
 import DemoModal from './components/DemoModal';
@@ -680,15 +680,11 @@ function App() {
                   <Mail className="w-5 h-5" />
                   <span className="text-sm">contact@nexanova.info</span>
                 </a>
-                <a href="tel:+1234567890" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors group">
-                  <Phone className="w-5 h-5" />
-                  <span className="text-sm">+1 (234) 567-890</span>
-                </a>
               </div>
 
               <div className="flex items-center space-x-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/nexa_nova.ai/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] w-12 h-12 rounded-full flex items-center justify-center border border-cyan-500/20 hover:border-cyan-500/60 hover:bg-cyan-500/10 transition-all duration-300"
@@ -696,7 +692,7 @@ function App() {
                   <Instagram className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/company/109264164/admin/dashboard/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] w-12 h-12 rounded-full flex items-center justify-center border border-cyan-500/20 hover:border-cyan-500/60 hover:bg-cyan-500/10 transition-all duration-300"
@@ -704,12 +700,12 @@ function App() {
                   <Linkedin className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://www.facebook.com/profile.php?id=61583128629039"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] w-12 h-12 rounded-full flex items-center justify-center border border-cyan-500/20 hover:border-cyan-500/60 hover:bg-cyan-500/10 transition-all duration-300"
                 >
-                  <Twitter className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
+                  <Facebook className="w-5 h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
                 </a>
               </div>
             </div>
