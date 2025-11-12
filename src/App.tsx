@@ -118,13 +118,11 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2 group">
-              <div className="relative">
-                <Zap className="w-8 h-8 text-cyan-400 animate-pulse" />
-                <div className="absolute inset-0 w-8 h-8 bg-cyan-400 blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              </div>
-              <span className="text-2xl font-bold tracking-tight bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Nexanova.ai
-              </span>
+              <img
+                src="/fulllogo_transparent.png"
+                alt="Nexanova.ai"
+                className="h-10 w-auto"
+              />
             </div>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -664,11 +662,12 @@ function App() {
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center space-x-2 mb-4 group">
-              <Zap className="w-10 h-10 text-cyan-400" />
-              <span className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Nexanova.ai
-              </span>
+            <div className="flex items-center justify-center mb-4">
+              <img
+                src="/fulllogo_transparent.png"
+                alt="Nexanova.ai"
+                className="h-16 w-auto"
+              />
             </div>
             <p className="text-xl text-cyan-400 font-bold mb-6">Future-Proof Your Business</p>
             <p className="text-gray-400 leading-relaxed max-w-2xl mx-auto mb-8">
