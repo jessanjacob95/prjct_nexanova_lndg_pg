@@ -121,7 +121,7 @@ function App() {
               <img
                 src="/fulllogo_transparent.png"
                 alt="Nexanova.ai"
-                className="h-10 w-auto"
+                className="h-16 w-auto"
               />
             </div>
 
@@ -666,7 +666,7 @@ function App() {
               <img
                 src="/fulllogo_transparent.png"
                 alt="Nexanova.ai"
-                className="h-16 w-auto"
+                className="h-24 w-auto"
               />
             </div>
             <p className="text-xl text-cyan-400 font-bold mb-6">Future-Proof Your Business</p>
