@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { X, Calendar as CalendarIcon, Clock } from 'lucide-react';
+import { X, Calendar as CalendarIcon, Clock, ExternalLink } from 'lucide-react';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -10,9 +14,8 @@ interface FormData {
   fullName: string;
   email: string;
   phone: string;
-  service: string;
-  date: string;
-  time: string;
+  company: string;
+  message: string;
 }
 
 const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
@@ -20,25 +23,16 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
     fullName: '',
     email: '',
     phone: '',
-    service: '',
-    date: '',
-    time: ''
+    company: '',
+    message: ''
   });
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [calendlyLink] = useState('https://calendly.com/shanshru15/30min');
 
-  const services = [
-    'CRM Setup',
-    'Automation',
-    'Customer Support Integration',
-    'Website Design',
-    'Sales Outreach Automation',
-    'Call Automation',
-    'Social Media Automation',
-    'Appointment Setting'
-  ];
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     if (errors[name as keyof FormData]) {
@@ -59,22 +53,6 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       newErrors.email = 'Please enter a valid email';
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    }
-
-    if (!formData.service) {
-      newErrors.service = 'Please select a service';
-    }
-
-    if (!formData.date) {
-      newErrors.date = 'Please select a date';
-    }
-
-    if (!formData.time) {
-      newErrors.time = 'Please select a time';
-    }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -86,49 +64,52 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
       return;
     }
 
+    setIsSubmitting(true);
+
     try {
-      const response = await fetch('https://hook.eu2.make.com/id9hcp788w39kihuk3j69i7tibz5bg18', {
+      const apiUrl = `${supabaseUrl}/functions/v1/send-booking-email`;
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          company: formData.company || undefined,
+          message: formData.message || undefined,
+        }),
       });
 
       if (response.ok) {
         setIsSubmitted(true);
-        setTimeout(() => {
-          setIsSubmitted(false);
-          setFormData({
-            fullName: '',
-            email: '',
-            phone: '',
-            service: '',
-            date: '',
-            time: ''
-          });
-          onClose();
-        }, 3000);
       } else {
-        console.error('Failed to submit form');
+        const errorData = await response.json();
+        console.error('Failed to submit form:', errorData);
         alert('Something went wrong. Please try again.');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('Failed to submit. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
   const handleClose = () => {
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      service: '',
-      date: '',
-      time: ''
-    });
-    setErrors({});
+    if (!isSubmitted) {
+      setFormData({
+        fullName: '',
+        email: '',
+        phone: '',
+        company: '',
+        message: ''
+      });
+      setErrors({});
+    }
     setIsSubmitted(false);
     onClose();
   };
@@ -156,11 +137,11 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
               <div className="text-center mb-8">
                 <h2 className="text-4xl md:text-5xl font-black mb-3">
                   <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                    Book Your Free Strategy Call
+                    Get Started Today
                   </span>
                 </h2>
                 <p className="text-gray-400 text-lg">
-                  Let's discuss how AI automation can transform your business
+                  Fill out the form below and schedule your free consultation
                 </p>
               </div>
 
@@ -205,103 +186,60 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
                   )}
                 </div>
 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-300 mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className={`w-full px-5 py-4 bg-white/5 border ${
-                      errors.phone ? 'border-red-500' : 'border-cyan-500/30'
-                    } rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all`}
-                    placeholder="+1 (555) 123-4567"
-                  />
-                  {errors.phone && (
-                    <p className="mt-2 text-sm text-red-400">{errors.phone}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label htmlFor="service" className="block text-sm font-semibold text-gray-300 mb-2">
-                    Select Service *
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className={`w-full px-5 py-4 bg-white/5 border ${
-                      errors.service ? 'border-red-500' : 'border-cyan-500/30'
-                    } rounded-xl text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all appearance-none cursor-pointer`}
-                  >
-                    <option value="" className="bg-[#1a1a3f]">Choose a service...</option>
-                    {services.map((service) => (
-                      <option key={service} value={service} className="bg-[#1a1a3f]">
-                        {service}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.service && (
-                    <p className="mt-2 text-sm text-red-400">{errors.service}</p>
-                  )}
-                </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="date" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Preferred Date *
+                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-300 mb-2">
+                      Phone Number
                     </label>
-                    <div className="relative">
-                      <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        value={formData.date}
-                        onChange={handleChange}
-                        min={new Date().toISOString().split('T')[0]}
-                        className={`w-full px-5 py-4 bg-white/5 border ${
-                          errors.date ? 'border-red-500' : 'border-cyan-500/30'
-                        } rounded-xl text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all`}
-                      />
-                      <CalendarIcon className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cyan-400 pointer-events-none" />
-                    </div>
-                    {errors.date && (
-                      <p className="mt-2 text-sm text-red-400">{errors.date}</p>
-                    )}
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-5 py-4 bg-white/5 border border-cyan-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                      placeholder="+1 (555) 123-4567"
+                    />
                   </div>
 
                   <div>
-                    <label htmlFor="time" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Preferred Time *
+                    <label htmlFor="company" className="block text-sm font-semibold text-gray-300 mb-2">
+                      Company
                     </label>
-                    <div className="relative">
-                      <input
-                        type="time"
-                        id="time"
-                        name="time"
-                        value={formData.time}
-                        onChange={handleChange}
-                        className={`w-full px-5 py-4 bg-white/5 border ${
-                          errors.time ? 'border-red-500' : 'border-cyan-500/30'
-                        } rounded-xl text-white focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all`}
-                      />
-                      <Clock className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-cyan-400 pointer-events-none" />
-                    </div>
-                    {errors.time && (
-                      <p className="mt-2 text-sm text-red-400">{errors.time}</p>
-                    )}
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full px-5 py-4 bg-white/5 border border-cyan-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                      placeholder="Your Company"
+                    />
                   </div>
                 </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-5 py-4 bg-white/5 border border-cyan-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all resize-none"
+                    placeholder="Tell us about your business and automation needs..."
+                  />
+                </div>
+
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-5 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-cyan-500/50 mt-8"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold py-5 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-cyan-500/50 mt-8 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  Submit Booking Request
+                  {isSubmitting ? 'Submitting...' : 'Continue to Schedule Call'}
                 </button>
               </form>
             </>
@@ -313,12 +251,28 @@ const BookingModal = ({ isOpen, onClose }: BookingModalProps) => {
               <h3 className="text-3xl font-black mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                 Thank You!
               </h3>
-              <p className="text-xl text-gray-300 mb-2">
-                Your strategy call has been booked.
+              <p className="text-xl text-gray-300 mb-6">
+                Your information has been received. Check your email for confirmation!
               </p>
-              <p className="text-lg text-gray-400">
-                We'll contact you soon to confirm the details.
+              <p className="text-lg text-gray-400 mb-8">
+                Now, let's schedule your free consultation call:
               </p>
+              <a
+                href={calendlyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/50"
+              >
+                <CalendarIcon className="w-5 h-5" />
+                <span>Schedule Your Call</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
+              <button
+                onClick={handleClose}
+                className="block w-full mt-6 text-gray-400 hover:text-gray-300 transition-colors"
+              >
+                Close
+              </button>
             </div>
           )}
         </div>
