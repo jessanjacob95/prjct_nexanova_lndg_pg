@@ -138,13 +138,15 @@ function App() {
               <button onClick={() => scrollToSection('faq')} className="text-gray-300 hover:text-cyan-400 transition-colors">
                 FAQ
               </button>
-              <button
-                onClick={() => setIsBookingModalOpen(true)}
+              <a
+                href="https://calendly.com/shanshru15/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="relative bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 px-6 py-2.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 shadow-lg shadow-cyan-500/50"
               >
                 <span>Book Free Call</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
 
             <button
@@ -169,13 +171,15 @@ function App() {
               <button onClick={() => scrollToSection('faq')} className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2">
                 FAQ
               </button>
-              <button
-                onClick={() => setIsBookingModalOpen(true)}
+              <a
+                href="https://calendly.com/shanshru15/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-2.5 rounded-full font-medium flex items-center justify-center space-x-2"
               >
                 <span>Book Free Call</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </a>
             </div>
           )}
         </div>
@@ -221,14 +225,16 @@ function App() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button
-              onClick={() => setIsBookingModalOpen(true)}
+            <a
+              href="https://calendly.com/shanshru15/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 px-12 py-6 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 shadow-2xl shadow-cyan-500/50 overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 opacity-0 group-hover:opacity-20 transition-opacity"></div>
               <span className="relative">Book a Free Strategy Call</span>
               <ArrowRight className="w-6 h-6 relative group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
             <button
               onClick={() => scrollToSection('demos')}
               className="group border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400/10 px-12 py-6 rounded-full text-xl font-bold transition-all duration-300 flex items-center space-x-2 backdrop-blur-sm"
@@ -279,62 +285,76 @@ function App() {
                 icon: Database,
                 title: "Lead Capture & CRM Integration",
                 description: "Watch how leads are captured and synced into a CRM automatically.",
-                color: "from-blue-600 to-purple-600"
+                color: "from-blue-600 to-purple-600",
+                image: "https://images.pexels.com/photos/590041/pexels-photo-590041.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: MessageSquare,
                 title: "Customer Support Ticket Automation",
                 description: "See AI create and manage support tickets in real time.",
-                color: "from-cyan-500 to-blue-600"
+                color: "from-cyan-500 to-blue-600",
+                image: "https://images.pexels.com/photos/5926382/pexels-photo-5926382.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: Calendar,
                 title: "Appointment Setting",
                 description: "Try our AI meeting scheduler demo.",
-                color: "from-purple-600 to-pink-600"
+                color: "from-purple-600 to-pink-600",
+                image: "https://images.pexels.com/photos/6457579/pexels-photo-6457579.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: PhoneCall,
                 title: "Call Automation",
                 description: "Preview how AI can confirm calls and send reminders.",
-                color: "from-red-600 to-orange-600"
+                color: "from-red-600 to-orange-600",
+                image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: TrendingUp,
                 title: "Sales Outreach Automation",
                 description: "Generate a personalized follow-up message instantly.",
-                color: "from-pink-600 to-red-600"
+                color: "from-pink-600 to-red-600",
+                image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: Share2,
                 title: "Social Media Automation",
                 description: "See AI generate post ideas and captions for your brand.",
-                color: "from-orange-600 to-yellow-600"
+                color: "from-orange-600 to-yellow-600",
+                image: "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: Globe,
                 title: "Website Building",
                 description: "Watch AI design a website section for your business instantly.",
-                color: "from-yellow-600 to-green-600"
+                color: "from-yellow-600 to-green-600",
+                image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800"
               }
             ].map((demo, index) => {
               const Icon = demo.icon;
               return (
                 <div
                   key={index}
-                  className="group relative bg-gradient-to-br from-[#0a0a1f]/80 to-[#1a1a3f]/80 backdrop-blur-sm p-8 rounded-2xl border border-cyan-500/20 hover:border-cyan-500/60 transition-all duration-500 cursor-pointer overflow-hidden"
+                  className="group relative bg-gradient-to-br from-[#0a0a1f]/80 to-[#1a1a3f]/80 backdrop-blur-sm rounded-2xl border border-cyan-500/20 hover:border-cyan-500/60 transition-all duration-500 cursor-pointer overflow-hidden"
                   style={{
                     animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
                   }}
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${demo.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={demo.image}
+                      alt={demo.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${demo.color} opacity-30 group-hover:opacity-20 transition-opacity duration-500`}></div>
+                    <div className={`absolute top-4 left-4 bg-gradient-to-br ${demo.color} p-3 w-14 h-14 rounded-xl flex items-center justify-center shadow-lg`}>
+                      <Icon className="w-7 h-7 text-white" />
+                    </div>
+                  </div>
 
                   <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${demo.color} rounded-full filter blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
 
-                  <div className="relative">
-                    <div className={`bg-gradient-to-br ${demo.color} p-4 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
+                  <div className="relative p-8">
                     <h3 className="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors">
                       {demo.title}
                     </h3>
@@ -382,7 +402,7 @@ function App() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <div className="text-center lg:text-left mb-8">
+              <div className="text-center mb-8">
                 <div className="inline-flex items-center space-x-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full mb-4">
                   <X className="w-4 h-4 text-red-400" />
                   <span className="text-red-400 text-sm font-semibold">WITHOUT AUTOMATION</span>
@@ -445,7 +465,7 @@ function App() {
             </div>
 
             <div className="space-y-6">
-              <div className="text-center lg:text-left mb-8">
+              <div className="text-center mb-8">
                 <div className="inline-flex items-center space-x-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-4">
                   <Check className="w-4 h-4 text-cyan-400" />
                   <span className="text-cyan-400 text-sm font-semibold">WITH NEXANOVA AI</span>
@@ -510,13 +530,7 @@ function App() {
 
           <div className="relative mt-20">
             <div className="text-center">
-              <button
-                onClick={() => setIsBookingModalOpen(true)}
-                className="group inline-flex items-center space-x-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 px-10 py-5 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-cyan-500/50"
-              >
-                <span>Start Automating Today</span>
-                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <p className="text-gray-400 text-lg mb-6">Join the companies already benefiting from AI automation</p>
             </div>
           </div>
         </div>
@@ -691,13 +705,15 @@ function App() {
           <p className="text-2xl md:text-3xl mb-12 max-w-3xl mx-auto leading-relaxed font-medium">
             No fluff. Just results. 30 minutes to change your business forever.
           </p>
-          <button
-            onClick={() => setIsBookingModalOpen(true)}
+          <a
+            href="https://calendly.com/shanshru15/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group bg-white text-blue-700 hover:bg-gray-50 px-16 py-8 rounded-full text-2xl font-black transition-all duration-300 transform hover:scale-105 inline-flex items-center space-x-3 shadow-2xl"
           >
             <span>Book Your Free Strategy Call</span>
             <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
-          </button>
+          </a>
           <p className="mt-8 text-white/90 text-lg font-semibold">
             ⚡ Average response time: Under 2 hours
           </p>
