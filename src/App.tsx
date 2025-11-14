@@ -300,21 +300,21 @@ function App() {
                 title: "Appointment Setting",
                 description: "Try our AI meeting scheduler demo.",
                 color: "from-purple-600 to-pink-600",
-                image: "https://images.pexels.com/photos/6457579/pexels-photo-6457579.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image: "https://images.pexels.com/photos/1020323/pexels-photo-1020323.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: PhoneCall,
                 title: "Call Automation",
                 description: "Preview how AI can confirm calls and send reminders.",
                 color: "from-red-600 to-orange-600",
-                image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHM5dXN3cjN6YmJxbDk1dHRjdDM2aGFqYm5mMmI0Znl1bXRxbHJ4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlDDyxBfSaPpU88/giphy.gif"
               },
               {
                 icon: TrendingUp,
                 title: "Sales Outreach Automation",
                 description: "Generate a personalized follow-up message instantly.",
                 color: "from-pink-600 to-red-600",
-                image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: Share2,
@@ -328,7 +328,7 @@ function App() {
                 title: "Website Building",
                 description: "Watch AI design a website section for your business instantly.",
                 color: "from-yellow-600 to-green-600",
-                image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image: "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg?auto=compress&cs=tinysrgb&w=800"
               }
             ].map((demo, index) => {
               const Icon = demo.icon;
