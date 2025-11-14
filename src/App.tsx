@@ -300,14 +300,14 @@ function App() {
                 title: "Appointment Setting",
                 description: "Try our AI meeting scheduler demo.",
                 color: "from-purple-600 to-pink-600",
-                image: "https://images.pexels.com/photos/1020323/pexels-photo-1020323.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image: "https://images.pexels.com/photos/5717448/pexels-photo-5717448.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: PhoneCall,
                 title: "Call Automation",
                 description: "Preview how AI can confirm calls and send reminders.",
                 color: "from-red-600 to-orange-600",
-                image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHM5dXN3cjN6YmJxbDk1dHRjdDM2aGFqYm5mMmI0Znl1bXRxbHJ4cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0HlDDyxBfSaPpU88/giphy.gif"
+                image: "https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: TrendingUp,
