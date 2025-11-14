@@ -300,7 +300,7 @@ function App() {
                 title: "Appointment Setting",
                 description: "Try our AI meeting scheduler demo.",
                 color: "from-purple-600 to-pink-600",
-                image: "https://images.pexels.com/photos/5717448/pexels-photo-5717448.jpeg?auto=compress&cs=tinysrgb&w=800"
+                image: "https://images.pexels.com/photos/273153/pexels-photo-273153.jpeg?auto=compress&cs=tinysrgb&w=800"
               },
               {
                 icon: PhoneCall,
