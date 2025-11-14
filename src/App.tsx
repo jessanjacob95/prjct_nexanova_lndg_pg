@@ -3,7 +3,7 @@ import {
   Menu, X, ArrowRight, ChevronDown, MessageSquare, Database, Calendar,
   PhoneCall, Share2, Globe, Shield, TrendingUp, Zap, CheckCircle2,
   Users, Clock, DollarSign, Target, Activity, Plus, Minus, Sparkles,
-  Instagram, Linkedin, Facebook, Mail, Play
+  Instagram, Linkedin, Facebook, Mail, Play, TrendingDown, Check, Star, Rocket
 } from 'lucide-react';
 import BookingModal from './components/BookingModal';
 import DemoModal from './components/DemoModal';
@@ -369,63 +369,154 @@ function App() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-black mb-6">
-              Your Business Runs 24/7.<br />
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-black mb-4">
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Why Shouldn't Your Growth?
+                Stop Losing Money
               </span>
             </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Every day without automation costs you revenue, time, and customers
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-8 rounded-2xl border border-red-500/30 hover:border-red-500/60 transition-all duration-300">
-              <div className="absolute inset-0 bg-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative">
-                <div className="bg-red-500/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Clock className="w-8 h-8 text-red-400" />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="space-y-6">
+              <div className="text-center lg:text-left mb-8">
+                <div className="inline-flex items-center space-x-2 px-4 py-2 bg-red-500/10 border border-red-500/30 rounded-full mb-4">
+                  <X className="w-4 h-4 text-red-400" />
+                  <span className="text-red-400 text-sm font-semibold">WITHOUT AUTOMATION</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-red-400">Missed Leads → Lost Revenue</h3>
-                <p className="text-gray-400 leading-relaxed">Every delayed response is money walking out the door</p>
+                <h3 className="text-3xl font-black text-red-400 mb-2">Doing Nothing</h3>
+                <p className="text-gray-400">The cost of manual processes</p>
+              </div>
+
+              <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-6 rounded-2xl border border-red-500/30 hover:border-red-500/60 transition-all duration-300">
+                <div className="absolute inset-0 bg-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start space-x-4">
+                  <div className="bg-red-500/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Clock className="w-6 h-6 text-red-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2 text-red-400">Missed Leads</h4>
+                    <p className="text-gray-400 leading-relaxed">Hours to respond means lost sales to faster competitors</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-6 rounded-2xl border border-red-500/30 hover:border-red-500/60 transition-all duration-300">
+                <div className="absolute inset-0 bg-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start space-x-4">
+                  <div className="bg-red-500/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Activity className="w-6 h-6 text-red-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2 text-red-400">Wasted Time</h4>
+                    <p className="text-gray-400 leading-relaxed">Teams drowning in repetitive tasks instead of strategic work</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-6 rounded-2xl border border-red-500/30 hover:border-red-500/60 transition-all duration-300">
+                <div className="absolute inset-0 bg-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start space-x-4">
+                  <div className="bg-red-500/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <TrendingDown className="w-6 h-6 text-red-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2 text-red-400">Lost Revenue</h4>
+                    <p className="text-gray-400 leading-relaxed">Manual errors and delays bleeding money every single day</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-6 rounded-2xl border border-red-500/30 hover:border-red-500/60 transition-all duration-300">
+                <div className="absolute inset-0 bg-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start space-x-4">
+                  <div className="bg-red-500/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Users className="w-6 h-6 text-red-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2 text-red-400">Customer Churn</h4>
+                    <p className="text-gray-400 leading-relaxed">Slow support and poor experiences driving customers away</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-8 rounded-2xl border border-orange-500/30 hover:border-orange-500/60 transition-all duration-300">
-              <div className="absolute inset-0 bg-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative">
-                <div className="bg-orange-500/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Activity className="w-8 h-8 text-orange-400" />
+            <div className="space-y-6">
+              <div className="text-center lg:text-left mb-8">
+                <div className="inline-flex items-center space-x-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full mb-4">
+                  <Check className="w-4 h-4 text-cyan-400" />
+                  <span className="text-cyan-400 text-sm font-semibold">WITH NEXANOVA AI</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-orange-400">Repetitive Tasks Waste Time</h3>
-                <p className="text-gray-400 leading-relaxed">Your team buried in busywork instead of growth activities</p>
+                <h3 className="text-3xl font-black text-cyan-400 mb-2">Using Automation</h3>
+                <p className="text-gray-400">The power of AI working 24/7</p>
               </div>
-            </div>
 
-            <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-8 rounded-2xl border border-yellow-500/30 hover:border-yellow-500/60 transition-all duration-300">
-              <div className="absolute inset-0 bg-yellow-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="relative">
-                <div className="bg-yellow-500/20 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <Users className="w-8 h-8 text-yellow-400" />
+              <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300">
+                <div className="absolute inset-0 bg-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start space-x-4">
+                  <div className="bg-cyan-500/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Zap className="w-6 h-6 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2 text-cyan-400">Instant Response</h4>
+                    <p className="text-gray-400 leading-relaxed">AI engages every lead in seconds, capturing opportunities 24/7</p>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-3 text-yellow-400">Poor Experience = Churn</h3>
-                <p className="text-gray-400 leading-relaxed">Slow support and manual processes drive customers away</p>
+              </div>
+
+              <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300">
+                <div className="absolute inset-0 bg-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start space-x-4">
+                  <div className="bg-cyan-500/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Rocket className="w-6 h-6 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2 text-cyan-400">Maximum Efficiency</h4>
+                    <p className="text-gray-400 leading-relaxed">Automate repetitive work, freeing your team for innovation</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300">
+                <div className="absolute inset-0 bg-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start space-x-4">
+                  <div className="bg-cyan-500/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <TrendingUp className="w-6 h-6 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2 text-cyan-400">Explosive Growth</h4>
+                    <p className="text-gray-400 leading-relaxed">Scale operations without scaling costs or headcount</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="group relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] p-6 rounded-2xl border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300">
+                <div className="absolute inset-0 bg-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-start space-x-4">
+                  <div className="bg-cyan-500/20 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Star className="w-6 h-6 text-cyan-400" />
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-2 text-cyan-400">Premium Experience</h4>
+                    <p className="text-gray-400 leading-relaxed">Deliver world-class service that keeps customers coming back</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="relative mt-20">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-30"></div>
-            </div>
-            <div className="relative flex justify-center">
-              <div className="bg-gradient-to-r from-cyan-600 to-blue-600 p-1 rounded-2xl shadow-lg shadow-cyan-500/50">
-                <div className="bg-[#0a0a1f] px-8 py-4 rounded-xl flex items-center space-x-3">
-                  <Zap className="w-8 h-8 text-cyan-400" />
-                  <span className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                    AI Fixes Everything
-                  </span>
-                </div>
-              </div>
+            <div className="text-center">
+              <button
+                onClick={() => setIsBookingModalOpen(true)}
+                className="group inline-flex items-center space-x-3 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 px-10 py-5 rounded-full text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-2xl shadow-cyan-500/50"
+              >
+                <span>Start Automating Today</span>
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              </button>
             </div>
           </div>
         </div>
