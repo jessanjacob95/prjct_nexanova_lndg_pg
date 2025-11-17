@@ -112,17 +112,15 @@ function DemoModal({ isOpen, onClose, demoTitle }: DemoModalProps) {
               <h2 className="text-3xl md:text-4xl font-black mb-6 bg-gradient-to-r from-yellow-400 to-green-500 bg-clip-text text-transparent text-center">
                 {demoTitle}
               </h2>
-              <div className="flex-1 relative rounded-2xl overflow-hidden">
-                <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
-                  <iframe
-                    src="https://player.vimeo.com/video/1137870220?badge=0&autopause=0&player_id=0&app_id=58479"
-                    frameBorder="0"
-                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                    title="Website Building Demo"
-                  ></iframe>
-                </div>
+              <div className="flex-1 relative rounded-2xl overflow-hidden bg-black">
+                <iframe
+                  src="https://player.vimeo.com/video/1137870220?badge=0&autopause=0&player_id=0&app_id=58479"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  className="w-full h-full absolute top-0 left-0"
+                  title="Website Building Demo"
+                ></iframe>
               </div>
             </>
           ) : (
