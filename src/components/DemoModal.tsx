@@ -23,11 +23,26 @@ function DemoModal({ isOpen, onClose, demoTitle }: DemoModalProps) {
         }
       };
     }
+
+    if (isOpen && demoTitle === 'Website Building') {
+      const script = document.createElement('script');
+      script.src = 'https://player.vimeo.com/api/player.js';
+      script.async = true;
+      document.body.appendChild(script);
+
+      return () => {
+        const existingScript = document.querySelector('script[src="https://player.vimeo.com/api/player.js"]');
+        if (existingScript) {
+          document.body.removeChild(existingScript);
+        }
+      };
+    }
   }, [isOpen, demoTitle]);
 
   if (!isOpen) return null;
 
   const isCallAutomation = demoTitle === 'Call Automation';
+  const isWebsiteBuilding = demoTitle === 'Website Building';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fadeIn">
@@ -36,7 +51,7 @@ function DemoModal({ isOpen, onClose, demoTitle }: DemoModalProps) {
         onClick={onClose}
       ></div>
 
-      <div className="relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] rounded-3xl p-8 md:p-12 max-w-2xl w-full border border-cyan-500/30 shadow-2xl shadow-cyan-500/50 animate-scaleIn overflow-hidden">
+      <div className={`relative bg-gradient-to-br from-[#0d1428] to-[#1a1a3f] rounded-3xl p-8 md:p-12 ${isWebsiteBuilding ? 'w-[75vw] h-[75vh]' : 'max-w-2xl w-full'} border border-cyan-500/30 shadow-2xl shadow-cyan-500/50 animate-scaleIn overflow-hidden`}>
         <div className="absolute -top-32 -right-32 w-64 h-64 bg-cyan-500 rounded-full filter blur-[120px] opacity-20"></div>
         <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-blue-500 rounded-full filter blur-[120px] opacity-20"></div>
 
@@ -47,7 +62,7 @@ function DemoModal({ isOpen, onClose, demoTitle }: DemoModalProps) {
           <X className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
         </button>
 
-        <div className="text-center relative">
+        <div className={`${isWebsiteBuilding ? 'h-full flex flex-col' : 'text-center'} relative`}>
           {isCallAutomation ? (
             <>
               <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-r from-red-600 to-orange-600 mb-6 shadow-2xl shadow-red-500/50 animate-pulse">
@@ -91,6 +106,24 @@ function DemoModal({ isOpen, onClose, demoTitle }: DemoModalProps) {
               <p className="text-sm text-gray-400 leading-relaxed">
                 This is a live demo of our AI call automation system. Experience how our AI can handle customer inquiries, book appointments, and provide support 24/7.
               </p>
+            </>
+          ) : isWebsiteBuilding ? (
+            <>
+              <h2 className="text-3xl md:text-4xl font-black mb-6 bg-gradient-to-r from-yellow-400 to-green-500 bg-clip-text text-transparent text-center">
+                {demoTitle}
+              </h2>
+              <div className="flex-1 relative rounded-2xl overflow-hidden">
+                <div style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+                  <iframe
+                    src="https://player.vimeo.com/video/1137870220?badge=0&autopause=0&player_id=0&app_id=58479"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                    title="Website Building Demo"
+                  ></iframe>
+                </div>
+              </div>
             </>
           ) : (
             <>
